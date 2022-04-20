@@ -33,19 +33,23 @@ const chooseOptimalDistance = (t, k, ls) => {
      }
   }
 
-
-  for(let i = 1;i<sumMas.length;i++)
+  sumMas.sort((a, b) => a - b);
+  for(let i = 0;i<sumMas.length;i++)
   {
-    if(sum < sumMas[i] && sumMas[i] < t)
+    
+    if(sumMas[i] < t)
     {
       sum = sumMas[i];
     }
     else break;
     
   }
- 
+
    if( sum !== 0)return sum;
    return null;
 }
 console.log(chooseOptimalDistance(174, 3, [51, 56, 58, 59, 61])); //173
 console.log(chooseOptimalDistance(163, 3, [50])); // null
+console.log(chooseOptimalDistance(230 ,3 ,[ 91, 74, 73, 85, 73, 81, 87 ])); //228
+console.log(chooseOptimalDistance(250 ,4 ,[ 91, 74, 73, 85, 73, 81, 87 ])); //null
+console.log(chooseOptimalDistance(107 ,3 ,[ 191, 74,70,34,2, 703, 85, 73, 81, 87 ])); //106
